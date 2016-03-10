@@ -3,5 +3,9 @@
 
     <string name="app_name">ADay</string>
     <string name="hello_world">Hello world!</string>
+    <string name="recommended_daily">每日推荐</string>
+    <string name="reader">读物</string>
+    <string name="music">音乐</string>
+    <string name="video">视频</string>
 
 </resources>
