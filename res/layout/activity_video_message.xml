@@ -150,7 +150,7 @@
             android:text="336" />
 
         <CheckBox
-            android:id="@+id/cb_video_message_like3"
+            android:id="@+id/cb_video_message_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:button="@null"
@@ -158,7 +158,7 @@
             android:text="336" />
 
         <CheckBox
-            android:id="@+id/cb_video_message_like4"
+            android:id="@+id/cb_video_message_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:button="@null"

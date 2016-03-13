@@ -2,13 +2,14 @@ package com.aday.aday.adapter;
 
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.aday.aday.R;
@@ -19,23 +20,25 @@ import com.aday.aday.util.TimeUtil;
  * 每日推荐的listview适配器
  * 
  * @author 余飞
- *
+ * 
  */
-public class ViewHomePageListviewAdapter extends BaseAdapter implements OnClickListener {
+public class ViewHomePageListviewAdapter extends BaseAdapter {
 
 	List<VideoHomePageModel> data;
 	Context context;
 	LayoutInflater inflater;
+	int height;
 
 	public ViewHomePageListviewAdapter() {
 
 	}
 
 	public ViewHomePageListviewAdapter(Context context,
-			List<VideoHomePageModel> data) {
+			List<VideoHomePageModel> data, int height) {
 		this.data = data;
 		this.context = context;
 		this.inflater = LayoutInflater.from(context);
+		this.height = height;
 	}
 
 	@Override
@@ -53,7 +56,7 @@ public class ViewHomePageListviewAdapter extends BaseAdapter implements OnClickL
 		return position;
 	}
 
-	@Override
+	@SuppressLint("InflateParams") @Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {
@@ -72,7 +75,8 @@ public class ViewHomePageListviewAdapter extends BaseAdapter implements OnClickL
 					.findViewById(R.id.tv_recommended_daily_content);
 			holder.iv_play = (ImageView) convertView
 					.findViewById(R.id.iv_recommended_daily_play);
-			holder.iv_play.setOnClickListener(this);
+			holder.llayout_logo = (LinearLayout) convertView
+					.findViewById(R.id.llayout_recommended_daily_logo);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -85,34 +89,15 @@ public class ViewHomePageListviewAdapter extends BaseAdapter implements OnClickL
 		holder.tv_type.setText(model.getType() + "/"
 				+ TimeUtil.getTimeByVideo(model.getVideoTime()));
 		holder.tv_content.setText(model.getContent());
+		holder.llayout_logo.setBackgroundResource(Integer.parseInt(model
+				.getLogo()));
+		convertView.setMinimumHeight(height);
 		return convertView;
 	}
-	
-	
 
 	class ViewHolder {
 		TextView tv_month, tv_day, tv_title, tv_type, tv_content;
 		ImageView iv_play;
-	}
-
-
-	/**
-	 * OnClickListener监听事件
-	 */
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.iv_recommended_daily_play:
-			play();
-			break;
-		default:
-			break;
-		}
-	}
-	
-	/**
-	 * 播放按钮
-	 */
-	private void play() {
+		LinearLayout llayout_logo;
 	}
 }

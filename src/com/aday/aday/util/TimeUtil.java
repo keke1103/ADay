@@ -1,5 +1,6 @@
 package com.aday.aday.util;
 
+import android.annotation.SuppressLint;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -42,9 +43,10 @@ public class TimeUtil {
 	 * @param time
 	 * @return
 	 */
+	@SuppressLint("SimpleDateFormat") 
 	public static String getTimeByVideo(long time) {
 		Date date = new Date(time);
-		SimpleDateFormat format = new SimpleDateFormat("mm' ss\"");
+		SimpleDateFormat format = new SimpleDateFormat("mm:ss");
 		return format.format(date);
 	}
 
