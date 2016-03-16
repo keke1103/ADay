@@ -17,14 +17,21 @@
             android:scaleType="fitXY"
             android:src="@drawable/classify_item_1" />
 
+        <ImageView
+            android:id="@+id/iv_video_classify_large_item_item_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/classify_item_menu_1" />
+
         <TextView
             android:id="@+id/tv_video_classify_large_item_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:drawablePadding="10dp"
-            android:drawableTop="@drawable/classify_item_1_menu"
-            android:gravity="center"
+            android:layout_below="@id/iv_video_classify_large_item_item_play"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
             android:text="#冲浪"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
@@ -34,10 +41,10 @@
         android:id="@+id/tv_video_classify_large_item_item_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
         android:text="我是测试数据！我是测试数据！我是测试数据！我是测试数据！" />
 
 </LinearLayout>

@@ -16,11 +16,42 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <include
-            android:id="@+id/homepage_bottom"
+        <RadioGroup
+            android:id="@+id/bottom_radiogroup_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/activity_bottom" />
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/bottom_rbtn_reading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_launcher"
+                android:gravity="center_horizontal"
+                android:text="@string/reader" />
+
+            <RadioButton
+                android:id="@+id/bottom_rbtn_music"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_launcher"
+                android:gravity="center_horizontal"
+                android:text="@string/music" />
+
+            <RadioButton
+                android:id="@+id/bottom_rbtn_video"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_launcher"
+                android:gravity="center_horizontal"
+                android:text="@string/video" />
+        </RadioGroup>
     </LinearLayout>
 
     <RelativeLayout
