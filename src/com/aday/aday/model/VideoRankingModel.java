@@ -3,6 +3,8 @@ package com.aday.aday.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aday.aday.R;
+
 /**
  * 排行的视频信息model
  * 
@@ -18,6 +20,8 @@ public class VideoRankingModel {
 	private int share;
 	private int comment;
 	private String videoPath;
+	private String background;
+	private String logo;
 	private int playQuantity;
 
 	public String getName() {
@@ -92,15 +96,35 @@ public class VideoRankingModel {
 		this.playQuantity = playQuantity;
 	}
 
+	public String getBackground() {
+		return background;
+	}
+
+	public void setBackground(String background) {
+		this.background = background;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
 	/**
 	 * 获取数据
+	 * 
 	 * @return
 	 */
-	public static List<VideoRankingModel> getData() {
+	public static List<VideoRankingModel> getData_week() {
 		List<VideoRankingModel> data = new ArrayList<VideoRankingModel>();
 		VideoRankingModel model;
+		String[] pic_week = { R.drawable.video_week1 + "",
+				R.drawable.video_week2 + "", R.drawable.video_week3 + "",
+				R.drawable.video_week4 + "", R.drawable.video_week5 + ""};
 
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < pic_week.length; i++) {
 			model = new VideoRankingModel();
 			model.name = "你所遗忘的童年";
 			model.type = "#记录";
@@ -110,7 +134,69 @@ public class VideoRankingModel {
 			model.comment = 123;
 			model.share = 444;
 			model.videoPath = "";
-			model.playQuantity = (int)(Math.random()*2000);
+			model.playQuantity = (int) (Math.random() * 2000);
+			model.background = "";
+			model.logo = pic_week[i];
+		}
+
+		return data;
+	}
+	
+	/**
+	 * 获取数据
+	 * 
+	 * @return
+	 */
+	public static List<VideoRankingModel> getData_month() {
+		List<VideoRankingModel> data = new ArrayList<VideoRankingModel>();
+		VideoRankingModel model;
+		String[] pic_month = { R.drawable.video_month_1 + "",
+				R.drawable.video_month_2 + "", R.drawable.video_month_3 + "",
+				R.drawable.video_month_4 + "", R.drawable.video_month_5 + ""};
+
+		for (int i = 0; i < pic_month.length; i++) {
+			model = new VideoRankingModel();
+			model.name = "你所遗忘的童年";
+			model.type = "#记录";
+			model.time = 1000 * 60 * 12 + 1000 * 31;
+			model.content = "我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！";
+			model.like = 998;
+			model.comment = 123;
+			model.share = 444;
+			model.videoPath = "";
+			model.playQuantity = (int) (Math.random() * 2000);
+			model.background = "";
+			model.logo = pic_month[i];
+		}
+
+		return data;
+	}
+	
+	/**
+	 * 获取数据
+	 * 
+	 * @return
+	 */
+	public static List<VideoRankingModel> getData_total() {
+		List<VideoRankingModel> data = new ArrayList<VideoRankingModel>();
+		VideoRankingModel model;
+		String[] pic_total = { R.drawable.video_total_1 + "",
+				R.drawable.video_total_2 + "", R.drawable.video_total_3 + "",
+				R.drawable.video_total_4 + "", R.drawable.video_total_5 + ""};
+
+		for (int i = 0; i < pic_total.length; i++) {
+			model = new VideoRankingModel();
+			model.name = "你所遗忘的童年";
+			model.type = "#记录";
+			model.time = 1000 * 60 * 12 + 1000 * 31;
+			model.content = "我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！";
+			model.like = 998;
+			model.comment = 123;
+			model.share = 444;
+			model.videoPath = "";
+			model.playQuantity = (int) (Math.random() * 2000);
+			model.background = "";
+			model.logo = pic_total[i];
 		}
 
 		return data;
