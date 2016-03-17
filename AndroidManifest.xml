@@ -25,18 +25,19 @@
         <activity android:name="com.aday.aday.ui.VideoMessageActivity" >
         </activity>
         <activity android:name="com.aday.aday.ui.VideoHomePageActivity" >
-        </activity>
-        <activity android:name="com.aday.aday.ui.ClassficActivity" >
-            
-        </activity>
-        <activity android:name="com.aday.aday.ui.ClassifyItemActivity" >
-        </activity>
-        <activity android:name="com.aday.aday.ui.RankingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.aday.aday.ui.ClassifyActivity" >
+        </activity>
+        <activity android:name="com.aday.aday.ui.ClassifyItemActivity" >
+        </activity>
+        <activity android:name="com.aday.aday.ui.RankingActivity" >
+        </activity>
+        <activity android:name="com.aday.aday.ui.RankingVideoInformationActivity" >
         </activity>
     </application>
 

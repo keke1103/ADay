@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+    <color name="word">#999999</color>
+    <color name="word_checked">#13b5b1</color>
 </resources>

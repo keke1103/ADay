@@ -1,6 +1,7 @@
 package com.aday.aday.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.aday.aday.R;
@@ -23,6 +24,7 @@ public class VideoRankingModel {
 	private String background;
 	private String logo;
 	private int playQuantity;
+	private long recommendTime;//推荐时间
 
 	public String getName() {
 		return name;
@@ -111,6 +113,14 @@ public class VideoRankingModel {
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
+	
+	public long getRecommendTime() {
+		return recommendTime;
+	}
+
+	public void setRecommendTime(long recommendTime) {
+		this.recommendTime = recommendTime;
+	}
 
 	/**
 	 * 获取数据
@@ -122,7 +132,7 @@ public class VideoRankingModel {
 		VideoRankingModel model;
 		String[] pic_week = { R.drawable.video_week1 + "",
 				R.drawable.video_week2 + "", R.drawable.video_week3 + "",
-				R.drawable.video_week4 + "", R.drawable.video_week5 + ""};
+				R.drawable.video_week4 + "", R.drawable.video_week5 + "" };
 
 		for (int i = 0; i < pic_week.length; i++) {
 			model = new VideoRankingModel();
@@ -142,7 +152,7 @@ public class VideoRankingModel {
 
 		return data;
 	}
-	
+
 	/**
 	 * 获取数据
 	 * 
@@ -153,7 +163,7 @@ public class VideoRankingModel {
 		VideoRankingModel model;
 		String[] pic_month = { R.drawable.video_month_1 + "",
 				R.drawable.video_month_2 + "", R.drawable.video_month_3 + "",
-				R.drawable.video_month_4 + "", R.drawable.video_month_5 + ""};
+				R.drawable.video_month_4 + "", R.drawable.video_month_5 + "" };
 
 		for (int i = 0; i < pic_month.length; i++) {
 			model = new VideoRankingModel();
@@ -173,7 +183,7 @@ public class VideoRankingModel {
 
 		return data;
 	}
-	
+
 	/**
 	 * 获取数据
 	 * 
@@ -184,7 +194,7 @@ public class VideoRankingModel {
 		VideoRankingModel model;
 		String[] pic_total = { R.drawable.video_total_1 + "",
 				R.drawable.video_total_2 + "", R.drawable.video_total_3 + "",
-				R.drawable.video_total_4 + "", R.drawable.video_total_5 + ""};
+				R.drawable.video_total_4 + "", R.drawable.video_total_5 + "" };
 
 		for (int i = 0; i < pic_total.length; i++) {
 			model = new VideoRankingModel();
@@ -199,6 +209,34 @@ public class VideoRankingModel {
 			model.playQuantity = (int) (Math.random() * 2000);
 			model.background = "";
 			model.logo = pic_total[i];
+			data.add(model);
+		}
+
+		return data;
+	}
+
+	/**
+	 * 获取数据
+	 * 
+	 * @return
+	 */
+	public static List<VideoRankingModel> getData_home() {
+		List<VideoRankingModel> data = new ArrayList<VideoRankingModel>();
+		VideoRankingModel model;
+		for (int i = 0; i < 8; i++) {
+			model = new VideoRankingModel();
+			model.name = "你所遗忘的童年";
+			model.type = "#奇幻冒险";
+			model.time = 1000 * 60 * 12 + 1000 * 31;
+			model.content = "我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！我是测试数据！";
+			model.like = 998;
+			model.comment = 123;
+			model.share = 444;
+			model.videoPath = "";
+			model.playQuantity = (int) (Math.random() * 2000);
+			model.background = "";
+			model.logo = R.drawable.video_background + "";
+			model.recommendTime = new Date().getTime();
 			data.add(model);
 		}
 

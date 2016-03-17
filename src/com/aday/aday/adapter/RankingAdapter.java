@@ -30,8 +30,8 @@ public class RankingAdapter extends BaseAdapter {
 		this.context = context;
 		this.inflater = LayoutInflater.from(context);
 	}
-	
-	public void setData(List<VideoRankingModel> data){
+
+	public void setData(List<VideoRankingModel> data) {
 		this.data = data;
 		this.notifyDataSetChanged();
 	}
@@ -51,7 +51,8 @@ public class RankingAdapter extends BaseAdapter {
 		return position;
 	}
 
-	@SuppressLint("InflateParams") @Override
+	@SuppressLint("InflateParams")
+	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {
