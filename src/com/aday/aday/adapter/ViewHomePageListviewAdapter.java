@@ -33,8 +33,7 @@ public class ViewHomePageListviewAdapter extends BaseAdapter {
 
 	}
 
-	public ViewHomePageListviewAdapter(Context context,
-			List<VideoHomePageModel> data, int height) {
+	public ViewHomePageListviewAdapter(Context context, List<VideoHomePageModel> data, int height) {
 		this.data = data;
 		this.context = context;
 		this.inflater = LayoutInflater.from(context);
@@ -56,27 +55,20 @@ public class ViewHomePageListviewAdapter extends BaseAdapter {
 		return position;
 	}
 
-	@SuppressLint("InflateParams") @Override
+	@SuppressLint("InflateParams")
+	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {
-			convertView = inflater.inflate(
-R.layout.activity_recommended_daily_item, null);
+			convertView = inflater.inflate(R.layout.activity_recommended_daily_item, null);
 			holder = new ViewHolder();
-			holder.tv_month = (TextView) convertView
-					.findViewById(R.id.tv_recommended_daily_month);
-			holder.tv_day = (TextView) convertView
-					.findViewById(R.id.tv_recommended_daily_day);
-			holder.tv_title = (TextView) convertView
-					.findViewById(R.id.tv_recommended_daily_title);
-			holder.tv_type = (TextView) convertView
-					.findViewById(R.id.tv_recommended_daily_type);
-			holder.tv_content = (TextView) convertView
-					.findViewById(R.id.tv_recommended_daily_content);
-			holder.iv_play = (ImageView) convertView
-					.findViewById(R.id.iv_recommended_daily_play);
-			holder.llayout_logo = (LinearLayout) convertView
-					.findViewById(R.id.llayout_recommended_daily_logo);
+			holder.tv_month = (TextView) convertView.findViewById(R.id.tv_recommended_daily_month);
+			holder.tv_day = (TextView) convertView.findViewById(R.id.tv_recommended_daily_day);
+			holder.tv_title = (TextView) convertView.findViewById(R.id.tv_recommended_daily_title);
+			holder.tv_type = (TextView) convertView.findViewById(R.id.tv_recommended_daily_type);
+			holder.tv_content = (TextView) convertView.findViewById(R.id.tv_recommended_daily_content);
+			holder.iv_play = (ImageView) convertView.findViewById(R.id.iv_recommended_daily_play);
+			holder.llayout_logo = (LinearLayout) convertView.findViewById(R.id.llayout_recommended_daily_logo);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -86,11 +78,9 @@ R.layout.activity_recommended_daily_item, null);
 		holder.tv_month.setText(TimeUtil.getMonthToEnglish(model.getTime()));
 		holder.tv_day.setText(TimeUtil.getDayToEnglish(model.getTime()));
 		holder.tv_title.setText(model.getTitle());
-		holder.tv_type.setText(model.getType() + "/"
-				+ TimeUtil.getTimeByVideo(model.getVideoTime()));
+		holder.tv_type.setText(model.getType() + "/" + TimeUtil.getTimeByVideo(model.getVideoTime()));
 		holder.tv_content.setText(model.getContent());
-		holder.llayout_logo.setBackgroundResource(Integer.parseInt(model
-				.getLogo()));
+		holder.llayout_logo.setBackgroundResource(Integer.parseInt(model.getLogo()));
 		convertView.setMinimumHeight(height);
 		return convertView;
 	}

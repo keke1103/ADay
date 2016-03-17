@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <ImageView
-        android:id="@+id/iv_video_ranking_total_item_iamgeview"
+        android:id="@+id/iv_video_ranking_item_iamgeview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -20,7 +20,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/tv_video_ranking_total_item_title"
+            android:id="@+id/tv_video_ranking_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -29,7 +29,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_video_ranking_total_item_type"
+            android:id="@+id/tv_video_ranking_item_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -46,7 +46,7 @@
             android:background="@android:color/white" />
 
         <TextView
-            android:id="@+id/tv_video_ranking_total_item_num"
+            android:id="@+id/tv_video_ranking_item_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
+        android:alpha="0.5"
         android:padding="10dp" >
 
         <TextView
@@ -82,5 +83,12 @@
                 android:text="@string/save" />
         </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_video_ranking_month_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/classify_item_menu_1" />
 
 </RelativeLayout>

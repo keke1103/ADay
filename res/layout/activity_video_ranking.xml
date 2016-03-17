@@ -47,7 +47,12 @@
             android:gravity="center"
             android:text="@string/total_ranking" />
     </RadioGroup>
-    
-    
+
+    <ListView
+        android:id="@+id/lv_video_ranking_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </ListView>
 
 </LinearLayout>

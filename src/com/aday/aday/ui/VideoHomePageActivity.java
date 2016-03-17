@@ -56,12 +56,11 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 		iv_menu = (ImageView) findViewById(R.id.iv_recommended_daily_menu);
 		iv_menu.setOnClickListener(this);
 
-		radioGroup = (RadioGroup) findViewById(R.id.bottom_radiogroup);
+		radioGroup = (RadioGroup) findViewById(R.id.bottom_radiogroup_home);
 		radioGroup.setOnCheckedChangeListener(this);
 
-		llayout = (LinearLayout) findViewById(R.id.homepage_bottom);
 		int height = getWindowManager().getDefaultDisplay().getHeight();
-		int height_llayout = llayout.getMeasuredHeight();
+		int height_llayout = radioGroup.getHeight();
 		Log.i("height=" + height, "height_llayout=" + height_llayout);
 
 		listView = (ListView) findViewById(R.id.lv_commended_daily_listview);
