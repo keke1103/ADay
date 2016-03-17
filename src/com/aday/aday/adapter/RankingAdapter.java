@@ -56,7 +56,7 @@ public class RankingAdapter extends BaseAdapter {
 		ViewHolder holder;
 		if (convertView == null) {
 			convertView = inflater.inflate(
-					R.layout.activity_video_ranking_item, null);
+					R.layout.activity_video_ranking_listview_item, null);
 			holder = new ViewHolder();
 			holder.imageView = (ImageView) convertView
 					.findViewById(R.id.iv_video_ranking_item_iamgeview);

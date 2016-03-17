@@ -4,6 +4,9 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioGroup;
@@ -25,6 +28,7 @@ public class RankingActivity extends Activity {
 	ImageView iv_back;
 	TextView tv_title;
 	RadioGroup group;
+	
 
 	TextView tv_week, tv_month, tv_total;
 
@@ -53,6 +57,7 @@ public class RankingActivity extends Activity {
 		listView = (ListView) findViewById(R.id.lv_video_ranking_listview);
 		adapter = new RankingAdapter(this,data_week);
 		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(clickListener);
 	}
 
 	/**
@@ -84,6 +89,22 @@ public class RankingActivity extends Activity {
 	private void toWeek() {
 		adapter.setData(data_week);
 	}
+	
+	/**
+	 * 打开视频信息界面
+	 * @param position
+	 */
+	private void openItem(int position) {
+		
+	}
+	
+	OnItemClickListener clickListener = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			openItem(position);
+		}
+	};
 
 	OnCheckedChangeListener changeListener = new OnCheckedChangeListener() {
 		@Override

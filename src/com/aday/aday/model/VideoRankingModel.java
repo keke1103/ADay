@@ -137,6 +137,7 @@ public class VideoRankingModel {
 			model.playQuantity = (int) (Math.random() * 2000);
 			model.background = "";
 			model.logo = pic_week[i];
+			data.add(model);
 		}
 
 		return data;
@@ -167,6 +168,7 @@ public class VideoRankingModel {
 			model.playQuantity = (int) (Math.random() * 2000);
 			model.background = "";
 			model.logo = pic_month[i];
+			data.add(model);
 		}
 
 		return data;
@@ -197,6 +199,7 @@ public class VideoRankingModel {
 			model.playQuantity = (int) (Math.random() * 2000);
 			model.background = "";
 			model.logo = pic_total[i];
+			data.add(model);
 		}
 
 		return data;
