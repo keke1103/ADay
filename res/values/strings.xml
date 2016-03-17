@@ -7,8 +7,12 @@
     <string name="reader">读物</string>
     <string name="music">音乐</string>
     <string name="video">视频</string>
+
 	<string name="week_ranking">周排行</string>
 	<string name="month_ranking">月排行</string>
 	<string name="total_ranking">总排行</string>
 	<string name="save">缓存</string>
+
+	<string name="music_title">Love Hurts</string>
+
 </resources>

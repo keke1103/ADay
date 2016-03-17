@@ -61,7 +61,7 @@ public class ViewHomePageListviewAdapter extends BaseAdapter {
 		ViewHolder holder;
 		if (convertView == null) {
 			convertView = inflater.inflate(
-					R.layout.activity_recommended_daily_item, null);
+R.layout.activity_recommended_daily_item, null);
 			holder = new ViewHolder();
 			holder.tv_month = (TextView) convertView
 					.findViewById(R.id.tv_recommended_daily_month);
