@@ -2,23 +2,32 @@ package com.aday.aday.ui;
 
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
 
 import com.aday.aday.R;
-import com.aday.aday.adapter.ViewHomePageListviewAdapter;
-import com.aday.aday.model.VideoHomePageModel;
+import com.aday.aday.adapter.VideoHomeAdapter;
+import com.aday.aday.model.VideoRankingModel;
 
 /**
  * 视频首界面
@@ -29,12 +38,14 @@ import com.aday.aday.model.VideoHomePageModel;
 public class VideoHomePageActivity extends Activity implements OnClickListener,
 		OnCheckedChangeListener {
 
-	ImageView iv_menu;
+	ImageView iv_menu, iv_spinner;
 	RadioGroup radioGroup;
 	ListView listView;
-	List<VideoHomePageModel> data;
-	ViewHomePageListviewAdapter adapter;
+	List<VideoRankingModel> data;
+	VideoHomeAdapter adapter;
 	LinearLayout llayout;
+	PopupWindow popupWindow;
+	int flog = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,32 +62,32 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 	 * 
 	 * @param height
 	 */
-	@SuppressWarnings("deprecation")
 	private void initView() {
 		iv_menu = (ImageView) findViewById(R.id.iv_recommended_daily_menu);
 		iv_menu.setOnClickListener(this);
 
-		radioGroup = (RadioGroup) findViewById(R.id.bottom_radiogroup_home);
+		radioGroup = (RadioGroup) findViewById(R.id.bottom_radiogroup);
 		radioGroup.setOnCheckedChangeListener(this);
 
-		int height = getWindowManager().getDefaultDisplay().getHeight();
-		int height_llayout = radioGroup.getHeight();
-		Log.i("height=" + height, "height_llayout=" + height_llayout);
-
 		listView = (ListView) findViewById(R.id.lv_commended_daily_listview);
-		adapter = new ViewHomePageListviewAdapter(this, data, height
-				- height_llayout);
+		int height = radioGroup.getHeight();
+		adapter = new VideoHomeAdapter(getApplicationContext(), data, height);
 		listView.setAdapter(adapter);
-		listView.setOnItemClickListener(new OnItemClickListener() {
+		listView.setOnItemClickListener(itemClickListener);
+
+		/*// onCreat的时候，此时没有绘制图形，图形绘制是在onDraw中进行.所以在onCreate方法中获取到的控件高度是为0。
+		// 可以注册一个监听，监听view绘制完成之后的高度为多少
+		ViewTreeObserver viewTreeObserver = radioGroup.getViewTreeObserver();
+		viewTreeObserver.addOnPreDrawListener(new OnPreDrawListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				Intent intent = new Intent(VideoHomePageActivity.this,
-						VideoMessageActivity.class);
-				intent.putExtra("position", position);
-				startActivity(intent);
+			public boolean onPreDraw() {
+				Log.i("onPreDraw", "height = " + radioGroup.getHeight());
+				return true;
 			}
-		});
+		});*/
+
+		iv_spinner = (ImageView) findViewById(R.id.iv_recommended_daily_spinner);
+		iv_spinner.setOnClickListener(this);
 
 	}
 
@@ -84,7 +95,7 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 	 * 初始化数据
 	 */
 	private void initData() {
-		data = VideoHomePageModel.getData();
+		data = VideoRankingModel.getData_home();
 	}
 
 	/**
@@ -95,6 +106,59 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 	}
 
 	/**
+	 * 跳转到排行界面
+	 */
+	private void gotoRank() {
+		popupWindow.dismiss();
+		Intent intent = new Intent(VideoHomePageActivity.this,
+				RankingActivity.class);
+		startActivityForResult(intent, 0);
+	}
+
+	/**
+	 * 跳转到分类界面
+	 */
+	private void gotoClassify() {
+		popupWindow.dismiss();
+		Intent intent = new Intent(VideoHomePageActivity.this,
+				ClassifyActivity.class);
+		startActivityForResult(intent, 0);
+	}
+
+	/**
+	 * 下拉按钮
+	 */
+	@SuppressWarnings("deprecation")
+	private void toSpinner() {
+		if (popupWindow == null) {
+			View view = getLayoutInflater().inflate(
+					R.layout.activity_video_spinner_item, null);
+			popupWindow = new PopupWindow(view, LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT, true);
+			TextView tv_rank = (TextView) view
+					.findViewById(R.id.tv_video_spinner_rank);
+			TextView tv_classify = (TextView) view
+					.findViewById(R.id.tv_video_spinner_classify);
+			tv_rank.setOnClickListener(this);
+			tv_classify.setOnClickListener(this);
+			popupWindow.setBackgroundDrawable(new BitmapDrawable());
+		}
+		// 显示位置
+		popupWindow.showAsDropDown(iv_spinner);
+	}
+
+	OnItemClickListener itemClickListener = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			Intent intent = new Intent(VideoHomePageActivity.this,
+					RankingVideoInformationActivity.class);
+			intent.putExtra("position", position);
+			startActivityForResult(intent, 0);
+		}
+	};
+
+	/**
 	 * OnClickListener单击事件
 	 */
 	@Override
@@ -103,7 +167,15 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 		case R.id.iv_recommended_daily_menu:
 			menu();
 			break;
-
+		case R.id.iv_recommended_daily_spinner:
+			toSpinner();
+			break;
+		case R.id.tv_video_spinner_classify:
+			gotoClassify();
+			break;
+		case R.id.tv_video_spinner_rank:
+			gotoRank();
+			break;
 		default:
 			break;
 		}

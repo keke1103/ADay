@@ -16,8 +16,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/ic_launcher"
+            android:drawableTop="@drawable/read"
             android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:text="@string/reader" />
 
         <RadioButton
@@ -26,8 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/ic_launcher"
+            android:drawableTop="@drawable/music"
             android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:text="@string/music" />
 
         <RadioButton
@@ -36,8 +40,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/ic_launcher"
+            android:drawableTop="@drawable/video"
             android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:text="@string/video" />
     </RadioGroup>
 

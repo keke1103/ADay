@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aday.aday.R;
@@ -53,10 +54,10 @@ public class ClassifyItemAdapter extends BaseAdapter {
 			convertView = inflater.inflate(R.layout.activity_video_classify_large_item_item, null);
 			holder = new ViewHolder();
 			holder.imageView = (ImageView) convertView.findViewById(R.id.iv_video_classify_large_item_item_iamgeview);
-			holder.iv_play = (ImageView) convertView.findViewById(R.id.iv_video_classify_large_item_item_play);
+			holder.rl_play = (RelativeLayout) convertView.findViewById(R.id.rlayout_video_classify_large_item_item_play);
 			holder.tv_title = (TextView) convertView.findViewById(R.id.tv_video_classify_large_item_item_name);
-			holder.tv_title = (TextView) convertView.findViewById(R.id.tv_video_classify_large_item_item_content);
-			holder.iv_play.setOnClickListener(new OnClickListener() {
+			holder.tv_content = (TextView) convertView.findViewById(R.id.tv_video_classify_large_item_item_content);
+			holder.rl_play.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					Log.i("ClassifyItemAdapter", "onClick");
@@ -74,7 +75,8 @@ public class ClassifyItemAdapter extends BaseAdapter {
 	}
 	
 	class ViewHolder{
-		ImageView imageView,iv_play;
+		ImageView imageView;
+		RelativeLayout rl_play;
 		TextView tv_title,tv_content;
 	}
 

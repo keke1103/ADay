@@ -20,5 +20,7 @@
     <string name="ss">#时尚</string>
     <string name="yd">#运动</string>
     <string name="dw">#动物</string>
+    <string name="classify">分类</string>
+    <string name="rank">排行</string>
 
 </resources>

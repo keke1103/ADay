@@ -31,6 +31,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.aday.aday.ui.ClassifyActivity" >
+        </activity>
+        <activity android:name="com.aday.aday.ui.ClassifyItemActivity" >
+        </activity>
+        <activity android:name="com.aday.aday.ui.RankingActivity" >
+        </activity>
+        <activity android:name="com.aday.aday.ui.RankingVideoInformationActivity" >
+        </activity>
     </application>
 
 </manifest>

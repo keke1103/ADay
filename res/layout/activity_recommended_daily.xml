@@ -16,42 +16,7 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <RadioGroup
-            android:id="@+id/bottom_radiogroup_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/bottom_rbtn_reading"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/ic_launcher"
-                android:gravity="center_horizontal"
-                android:text="@string/reader" />
-
-            <RadioButton
-                android:id="@+id/bottom_rbtn_music"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/ic_launcher"
-                android:gravity="center_horizontal"
-                android:text="@string/music" />
-
-            <RadioButton
-                android:id="@+id/bottom_rbtn_video"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/ic_launcher"
-                android:gravity="center_horizontal"
-                android:text="@string/video" />
-        </RadioGroup>
+        <include layout="@layout/activity_bottom" />
     </LinearLayout>
 
     <RelativeLayout
@@ -63,7 +28,8 @@
             android:id="@+id/iv_recommended_daily_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher" />
+            android:padding="10dp"
+            android:src="@drawable/menu" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -71,6 +37,15 @@
             android:layout_centerInParent="true"
             android:text="@string/recommended_daily"
             android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/iv_recommended_daily_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/spinner" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -17,9 +17,10 @@ import android.widget.TextView;
  * @author 余飞
  * 
  */
-public class ClassficActivity extends Activity {
+public class ClassifyActivity extends Activity {
 
 	ImageView iv_back;
+	TextView tv_title;
 	GridView gridView;
 	TextView tv_cy, tv_lx, tv_jq, tv_ms, tv_dm, tv_ss, tv_yd, tv_dw;
 
@@ -51,12 +52,19 @@ public class ClassficActivity extends Activity {
 		tv_ss.setOnClickListener(clickListener);
 		tv_yd.setOnClickListener(clickListener);
 		tv_dw.setOnClickListener(clickListener);
+
+		iv_back = (ImageView) findViewById(R.id.iv_video_top_back);
+		iv_back.setOnClickListener(clickListener);
+
+		tv_title = (TextView) findViewById(R.id.tv_video_top_title);
+		tv_title.setText(R.string.classify);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(ClassficActivity.this,ClassifyItemActivity.class);
+			Intent intent = new Intent(ClassifyActivity.this,
+					ClassifyItemActivity.class);
 			switch (v.getId()) {
 			case R.id.tv_classify_cy:
 				startActivityForResult(intent, 0);
@@ -81,6 +89,9 @@ public class ClassficActivity extends Activity {
 				break;
 			case R.id.tv_classify_dw:
 				startActivityForResult(intent, 0);
+				break;
+			case R.id.iv_video_top_back:
+				finish();
 				break;
 			default:
 				break;

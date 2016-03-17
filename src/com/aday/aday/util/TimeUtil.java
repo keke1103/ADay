@@ -43,7 +43,7 @@ public class TimeUtil {
 	 * @param time
 	 * @return
 	 */
-	@SuppressLint("SimpleDateFormat") 
+	@SuppressLint("SimpleDateFormat")
 	public static String getTimeByVideo(long time) {
 		Date date = new Date(time);
 		SimpleDateFormat format = new SimpleDateFormat("mm:ss");
