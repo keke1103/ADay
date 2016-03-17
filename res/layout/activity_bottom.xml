@@ -16,11 +16,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/read"
+            android:drawableTop="@drawable/selector_read"
             android:gravity="center_horizontal"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:text="@string/reader" />
+            android:text="@string/reader"
+            android:textColor="@color/color_selector_bottom" />
 
         <RadioButton
             android:id="@+id/bottom_rbtn_music"
@@ -28,11 +29,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/music"
+            android:drawableTop="@drawable/selector_music"
             android:gravity="center_horizontal"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:text="@string/music" />
+            android:text="@string/music"
+            android:textColor="@color/color_selector_bottom" />
 
         <RadioButton
             android:id="@+id/bottom_rbtn_video"
@@ -40,11 +42,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/video"
+            android:drawableTop="@drawable/selector_video"
             android:gravity="center_horizontal"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:text="@string/video" />
+            android:text="@string/video"
+            android:textColor="@color/color_selector_bottom" />
     </RadioGroup>
 
 </LinearLayout>

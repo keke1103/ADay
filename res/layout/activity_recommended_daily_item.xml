@@ -120,6 +120,7 @@
         android:layout_alignParentBottom="true"
         android:alpha="0.8"
         android:background="@null"
+        android:paddingBottom="25dp"
         android:orientation="vertical"
         android:padding="10dp" >
 

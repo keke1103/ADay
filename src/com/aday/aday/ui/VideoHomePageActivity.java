@@ -7,13 +7,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewTreeObserver;
-import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
@@ -62,6 +57,7 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 	 * 
 	 * @param height
 	 */
+	@SuppressWarnings("deprecation")
 	private void initView() {
 		iv_menu = (ImageView) findViewById(R.id.iv_recommended_daily_menu);
 		iv_menu.setOnClickListener(this);
@@ -70,8 +66,8 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 		radioGroup.setOnCheckedChangeListener(this);
 
 		listView = (ListView) findViewById(R.id.lv_commended_daily_listview);
-		int height = radioGroup.getHeight();
-		adapter = new VideoHomeAdapter(getApplicationContext(), data, height);
+		int height = getWindowManager().getDefaultDisplay().getHeight();
+		adapter = new VideoHomeAdapter(getApplicationContext(), data, height-105);
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(itemClickListener);
 
@@ -128,7 +124,7 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 	/**
 	 * 下拉按钮
 	 */
-	@SuppressWarnings("deprecation")
+	@SuppressLint("InflateParams") @SuppressWarnings("deprecation")
 	private void toSpinner() {
 		if (popupWindow == null) {
 			View view = getLayoutInflater().inflate(
