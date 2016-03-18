@@ -148,7 +148,7 @@ public class VideoHomePageActivity extends Activity implements OnClickListener,
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			Intent intent = new Intent(VideoHomePageActivity.this,
-					RankingVideoInformationActivity.class);
+					VideoInformationActivity.class);
 			intent.putExtra("position", position);
 			startActivityForResult(intent, 0);
 		}

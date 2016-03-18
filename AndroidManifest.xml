@@ -35,7 +35,7 @@
         </activity>
         <activity android:name="com.aday.aday.ui.RankingActivity" >
         </activity>
-        <activity android:name="com.aday.aday.ui.RankingVideoInformationActivity" >
+        <activity android:name="com.aday.aday.ui.VideoInformationActivity" >
         </activity>
         
     </application>

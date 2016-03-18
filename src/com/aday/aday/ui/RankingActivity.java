@@ -101,7 +101,7 @@ public class RankingActivity extends Activity {
 	 * @param position
 	 */
 	private void openItem(int position) {
-		Intent intent = new Intent(RankingActivity.this,RankingVideoInformationActivity.class);
+		Intent intent = new Intent(RankingActivity.this,VideoInformationActivity.class);
 		intent.putExtra("position", position);
 		startActivityForResult(intent, 0);
 	}

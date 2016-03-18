@@ -3,9 +3,12 @@ package com.aday.aday.ui;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -43,15 +46,26 @@ public class ClassifyItemActivity extends Activity {
 		listView = (ListView) findViewById(R.id.lv_video_classify_largeItem_listview);
 		adapter = new ClassifyItemAdapter(this,data);
 		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(itemClickListener);
 	}
-
+	
 	/**
 	 * 初始化数据
 	 */
 	private void initData() {
 		data = ClassifyItemModel.getData();
 	}
-
+	
+	OnItemClickListener itemClickListener = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			Intent intent = new Intent(ClassifyItemActivity.this,VideoInformationActivity.class);
+			intent.putExtra("position", position);
+			startActivityForResult(intent, 0);
+		}
+	};
+	
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
